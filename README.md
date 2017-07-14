@@ -10,8 +10,7 @@ sudo apt-get install docker.io
 ~~~
 
 # For Proxy
-- Proxy経由でのアクセスが必要な場合、HOST環境/Docker Boot部/Docker内の   
-　三箇所で設定が必要です。
+- Proxy経由でのアクセスが必要な場合、HOST環境/Docker Boot部/Docker内の三箇所で設定が必要です。
    - http://qiita.com/tora470/items/cd9335f5ce638e11bb97
 
 # Directories
