@@ -12,8 +12,8 @@ sudo apt-get install docker.io
 # Files
 
 - base_env
- - 管理者用
- - ビルドに必要なパッケージ群のDockerfile
+  - 管理者用
+  - ビルドに必要なパッケージ群のDockerfile
 - public_env
- - 一般開発者向け
- - 環境構築方法はREADME.mdを見てください。
+  - 一般開発者向け
+  - 環境構築方法はREADME.mdを見てください。
