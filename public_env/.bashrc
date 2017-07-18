@@ -5,5 +5,5 @@ export ftp_proxy=$http_proxy
 export HTTP_PROXY=$http_proxy
 export HTTPS_PROXY=$http_proxy
 export FTP_PROXY=$http_proxy
-export no_proxy=.fujitsu.com,.fujitsu.co.jp,localhost,${DOCKER}
-export NO_PROXY=.fujitsu.com,.fujitsu.co.jp,localhost,${DOCKER}
+export no_proxy=localhost,${DOCKER}
+export NO_PROXY=localhost,${DOCKER}
