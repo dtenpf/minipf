@@ -23,17 +23,14 @@ docker run --name my_build  -v <path to share dir>:/root/share -i -t dtenpf/mini
 
 - In Docker
 ~~~~
-/* 必要に応じて作業 */
-# cp share/.bashrc /root
-# cp share/.smb.conf /root
-# cp share/local.user.conf /root
-# mkdir /root/tmp
+/* 1回目のみ */
+# /root/share/setup_minipf.sh
+# . ~/.bashrc
 
 /* 毎回の作業 */
 # export USER=user
 # mkdir build_wk
 # cd build_wk
-# ./setup.sh <..to be continued>
 ~~~~
 
 # How to reconnect docker
