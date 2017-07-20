@@ -1,8 +1,9 @@
 # Install
 
-- [For Windows]Docker Toolboxを入れて下さい。全てのcheckboxにcheckを入れてinstallしてください。
+- [For Windows]Windows10以降はDocker for windows、Windows7以前の場合はDocker Toolboxを入れて下さい。全てのcheckboxにcheckを入れてinstallしてください。(64bitのみ)
 
   - https://www.docker.com/products/docker-toolbox
+  - https://www.docker.com/docker-windows
 
 - [For Linux]パッケージ管理を使っていれてください。下記はubuntuの例です。
 ~~~
