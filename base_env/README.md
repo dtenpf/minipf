@@ -7,7 +7,7 @@ docker tag <imageid> dtenpf/minipf_build:<tag>
 docker push denpf/minipf_build:<tag>
 ~~~~
 
-# how to create multi arch schroot
+# how to create multi arch debian
 
 ~~~~
 # docker run --name "mybuild" --privileged -it dtenpf/minipf_build /bin/bash
@@ -16,12 +16,10 @@ docker push denpf/minipf_build:<tag>
 # mkdir -p /var/chroot/deploy_amd64
 # debootstrap --variant=minbase sid /var/chroot/deploy_amd64 http://ftp.jp.debian.org/debian
 
-# vi /var/chroot/deploy_amd64/etc/apt/sources.list
-deb http://ftp.jp.debian.org/debian sid main
-deb [trusted=yes] file:///home/debian 
-
+# cp /root/sources.list /var/chroot/deploy_amd64/etc/apt/sources.list
 # schroot -c deploy_amd64 /bin/bash
-
+(deploy_amd64) # apt-get update
+ 
 ** AARCH64
 # /etc/init.d/binfmt-support start
 # update-binfmts --remove qemu-aarch64 /usr/bin/qemu-aarch64-static
@@ -30,11 +28,9 @@ deb [trusted=yes] file:///home/debian
 # mkdir -p /var/chroot/deploy_arm64
 # qemu-debootstrap --variant=minbase --arch=arm64 sid /var/chroot/deploy_arm64/ http://ftp.jp.debian.org/debian
 
-# vi /var/chroot/deploy_arm64/etc/apt/sources.list
-deb http://ftp.debian.org/debian sid main
-deb [trusted=yes] file:///home/debian 
-
+# cp /root/sources.list /var/chroot/deploy_amd64/etc/apt/sources.list
 # schroot -c deploy_amd64 /bin/bash
+(deploy_arm64) # apt-get update
 ~~~~
 
 # How to build QEMU
