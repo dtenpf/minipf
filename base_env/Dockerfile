@@ -15,7 +15,8 @@ ADD deploy_amd64.conf /etc/schroot/chroot.d/
 RUN mkdir -p /home/debian
 ADD inst_pkg.sh /home/debian
 RUN chmod +x /home/debian/inst_pkg.sh
-ADD sources.list /root 
+ADD sources.list /home/debian/ 
 RUN mkdir -p /var/chroot
+RUN apt-get install -y libfreetype6-dev
 ENV USER user
 ENV LANG ja_JP.UTF-8
