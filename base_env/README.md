@@ -8,6 +8,7 @@ docker push denpf/minipf_build:0.1
 ~~~~
 
 # how to create multi arch schroot
+
 ~~~~
 # docker run --name "mybuild" --privileged -it dtenpf/minipf_build /bin/bash
 # apt-get update
@@ -72,13 +73,6 @@ root-groups=root
 
 # vi /var/chroot/deploy_arm64/etc/apt/sources.list
 deb http://ftp.debian.org/debian sid main
-
-** ARM32
-# mkdir -p /var/chroot/deploy_armhf
-# qemu-debootstrap --variant=minbase --arch=armhf sid /var/chroot/deploy_armhf/ http://ftp.jp.debian.org/debian
-
-# vi /var/chroot/deploy_armhf/etc/apt/sources.list
-deb http://ftp.jp.debian.org/debian sid main
 deb [trusted=yes] file:///home/debian 
 
 # schroot -c deploy_amd64 /bin/bash
