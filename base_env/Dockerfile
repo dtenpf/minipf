@@ -15,12 +15,7 @@ ADD deploy_amd64.conf /etc/schroot/chroot.d/
 RUN mkdir -p /home/debian
 ADD inst_pkg.sh /home/debian
 RUN chmod +x /home/debian/inst_pkg.sh
-RUN wget https://github.com/dtenpf/minipf/releases/download/1.0.0/debian_sid_minibase_arm64.tgz
+ADD sources.list /root 
 RUN mkdir -p /var/chroot
-RUN tar zxf debian_sid_minibase_arm64.tgz -C /var/chroot
-RUN wget https://github.com/dtenpf/minipf/releases/download/1.0.0/debian_sid_minibase_amd64.tgz
-RUN tar zxf debian_sid_minibase_amd64.tgz -C /var/chroot
-ADD sources.list /var/chroot/deploy_arm64/etc/apt
-ADD sources.list /var/chroot/deploy_amd64/etc/apt
 ENV USER user
 ENV LANG ja_JP.UTF-8
