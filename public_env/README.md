@@ -22,12 +22,28 @@ docker pull dtenpf/minipf_build
 docker run --name mybuild --privileged --ulimit msgqueue=12582912:12582912 -v <path to share dir>:/root/share -i -t dtenpf/minipf_build
 ~~~~
 
-- In Docker
+## In Docker
 ~~~~
 /* 1回目のみ */
 # /root/share/setup_minipf.sh
 # . ~/.bashrc
 ~~~~
+
+## Multi Arch Enviroment
+- 隔離された環境でarm64/amd64のdebian環境が使えます。
+- /homeが共有されており、APTリポジトリとなっているため、
+　debianパッケージを配布することができます。packageを置いて、inst_pkg.shを叩いてください。
+~~~~
+# schroot -c deploy_arm64
+# schroot -c deploy_amd64
+~~~~~
+
+- うまく動作しないときはbinfmtが止まっている場合があります。再起動させてください。
+
+~~~~
+# /etc/init.d/binfmt-support start
+~~~~~
+
 
 # How to reconnect docker
 ~~~~
