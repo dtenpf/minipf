@@ -19,7 +19,7 @@ drwxr-xr-x 1 hoge 197121   0 7月  14 12:17 ../
 # How to run docker
 ~~~~
 docker pull dtenpf/minipf_build
-docker run --name my_build --ulimit msgqueue=12582912:12582912 -v <path to share dir>:/root/share -i -t dtenpf/minipf_build
+docker run --name mybuild --privileged --ulimit msgqueue=12582912:12582912 -v <path to share dir>:/root/share -i -t dtenpf/minipf_build
 ~~~~
 
 - In Docker
@@ -27,11 +27,6 @@ docker run --name my_build --ulimit msgqueue=12582912:12582912 -v <path to share
 /* 1回目のみ */
 # /root/share/setup_minipf.sh
 # . ~/.bashrc
-
-/* 毎回の作業 */
-# export USER=user
-# mkdir build_wk
-# cd build_wk
 ~~~~
 
 # How to reconnect docker
