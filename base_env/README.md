@@ -12,7 +12,7 @@ docker push denpf/minipf_build:<tag>
 ~~~~
 # docker run --name "mybuild" --privileged -it dtenpf/minipf_build /bin/bash
 
-** AMD64
+** AMD64(X86_64)
 # mkdir -p /var/chroot/deploy_amd64
 # debootstrap --variant=minbase sid /var/chroot/deploy_amd64 http://ftp.jp.debian.org/debian
 
@@ -20,10 +20,8 @@ docker push denpf/minipf_build:<tag>
 # schroot -c deploy_amd64 /bin/bash
 (deploy_amd64) # apt-get update
  
-** AARCH64
+** ARM64(AARCH64)
 # /etc/init.d/binfmt-support start
-# update-binfmts --remove qemu-aarch64 /usr/bin/qemu-aarch64-static
-# update-binfmts --import qemu-aarch64
 
 # mkdir -p /var/chroot/deploy_arm64
 # qemu-debootstrap --variant=minbase --arch=arm64 sid /var/chroot/deploy_arm64/ http://ftp.jp.debian.org/debian
