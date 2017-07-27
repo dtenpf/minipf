@@ -28,7 +28,7 @@ docker push denpf/minipf_build:<tag>
 # mkdir -p /var/chroot/deploy_arm64
 # qemu-debootstrap --variant=minbase --arch=arm64 sid /var/chroot/deploy_arm64/ http://ftp.jp.debian.org/debian
 
-# cp /root/sources.list /var/chroot/deploy_amd64/etc/apt/sources.list
+# cp /root/sources.list /var/chroot/deploy_arm64/etc/apt/sources.list
 # schroot -c deploy_amd64 /bin/bash
 (deploy_arm64) # apt-get update
 ~~~~
