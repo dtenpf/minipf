@@ -34,15 +34,15 @@ docker run --name mybuild --privileged --ulimit msgqueue=12582912:12582912 -v <p
 
 ## Multi Arch Enviroment
 
-- 隔離された環境でarm64/amd64のdebian環境が使えます。
-- /homeが共有されており、APTリポジトリとなっているため、
-　debianパッケージを配布することができます。packageを置いて、inst_pkg.shを叩いてください。
+- "w.arm64"の接頭辞がついているtagはdebianのミニマム環境がついています。    
+  隔離された環境でarm64のdebian環境が使えます。
+- /homeが共有されており、APTリポジトリとなっているため   
+  debianパッケージを配布することができます。packageを置いて、inst_pkg.shを叩いてください。
 ~~~~
 $ docker pull dtenpf/minipf_build:w.arm64.<revision>
 $ docker run --name mybuild --privileged --ulimit msgqueue=12582912:12582912 -v <path to share dir>:/root/share -i -t dtenpf/minipf_build:w.arm64.<revision>
 
 # schroot -c deploy_arm64
-# schroot -c deploy_amd64
 ~~~~~
 
 - うまく動作しないときはbinfmtが止まっている場合があります。再起動させてください。
