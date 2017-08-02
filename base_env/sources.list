@@ -1,2 +1,2 @@
-deb http://ftp.jp.debian.org/debian sid main
+deb http://ftp.debian.org/debian sid main
 deb [trusted=yes] file:///home/debian ./
