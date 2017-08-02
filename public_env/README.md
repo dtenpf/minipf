@@ -13,8 +13,7 @@ drwxr-xr-x 1 hoge 197121   0 7月  14 12:17 ../
 ~~~~
 
 - docker内で必要な設定ファイルをhostから共有するためのひな形です。
-- 社内環境でproxyが必要な方は.bashrcを編集してください。
-- .smb.confは自分のID/PASSを入れてください
+- 自分の環境に合わせて設定してください。
 
 # How to run docker
 ~~~~
@@ -30,10 +29,14 @@ docker run --name mybuild --privileged --ulimit msgqueue=12582912:12582912 -v <p
 ~~~~
 
 ## Multi Arch Enviroment
+
 - 隔離された環境でarm64/amd64のdebian環境が使えます。
 - /homeが共有されており、APTリポジトリとなっているため、
 　debianパッケージを配布することができます。packageを置いて、inst_pkg.shを叩いてください。
 ~~~~
+$ docker pull dtenpf/minipf_build:w.arm64.<revision>
+$ docker run --name mybuild --privileged --ulimit msgqueue=12582912:12582912 -v <path to share dir>:/root/share -i -t dtenpf/minipf_build:w.arm64.<revision>
+
 # schroot -c deploy_arm64
 # schroot -c deploy_amd64
 ~~~~~
