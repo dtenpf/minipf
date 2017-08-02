@@ -16,9 +16,13 @@ drwxr-xr-x 1 hoge 197121   0 7月  14 12:17 ../
 - 自分の環境に合わせて設定してください。
 
 # How to run docker
+
+- docker hubからimageを取得します。下記から最新のtagを見て持ってきてください。省略するとlatestになります。
+  - https://hub.docker.com/r/dtenpf/minipf_build/tags/
+
 ~~~~
-docker pull dtenpf/minipf_build
-docker run --name mybuild --privileged --ulimit msgqueue=12582912:12582912 -v <path to share dir>:/root/share -i -t dtenpf/minipf_build
+docker pull dtenpf/minipf_build:<tag>
+docker run --name mybuild --privileged --ulimit msgqueue=12582912:12582912 -v <path to share dir>:/root/share -i -t dtenpf/minipf_build:<tag>
 ~~~~
 
 ## In Docker
