@@ -4,7 +4,7 @@
 docker login
 docker build -t dtenpf/minipf_build --no-cache=true --build-arg http_proxy="xxxx" --build-arg https_proxy="xxxx" . 
 docker tag <imageid> dtenpf/minipf_build:<tag>
-docker push denpf/minipf_build:<tag>
+docker push dtenpf/minipf_build:<tag>
 ~~~~
 
 # how to create multi arch debian
