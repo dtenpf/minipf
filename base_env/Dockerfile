@@ -18,5 +18,6 @@ RUN chmod +x /home/debian/inst_pkg.sh
 ADD sources.list /home/debian/ 
 RUN mkdir -p /var/chroot
 RUN apt-get install -y libfreetype6-dev
+RUN apt-get install -y xz-utils
 ENV USER user
 ENV LANG ja_JP.UTF-8
