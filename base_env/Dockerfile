@@ -19,5 +19,14 @@ ADD sources.list /home/debian/
 RUN mkdir -p /var/chroot
 RUN apt-get install -y libfreetype6-dev
 RUN apt-get install -y xz-utils
+# Dotnetインストール
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl apt-transport-https genisoimage
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+RUN cat /etc/apt/sources.list.d/dotnetdev.list
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dotnet-runtime-2.0.5
+# 環境変数設定
 ENV USER user
 ENV LANG ja_JP.UTF-8
