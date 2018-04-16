@@ -26,7 +26,7 @@ RUN mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 RUN sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
 RUN cat /etc/apt/sources.list.d/dotnetdev.list
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dotnet-runtime-2.0.5
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dotnet-runtime-2.0.5 jq
 # 環境変数設定
 ENV USER user
 ENV LANG ja_JP.UTF-8
